@@ -1,11 +1,21 @@
 import React, {useStore} from 'react';
 import { connect } from 'react-redux';
+import Axios from 'axios';
 
 const Review = (props) => {
   
   // Sends feedback to server
   function submit(){
-    return null
+    postFeedback(props.feedback)
+  }
+
+  // Sends feedback to server
+  function postFeedback(payload){
+    Axios.post('/feedback', payload).then(response=>{
+      console.log('success');
+    }).catch(err=>{
+      console.log(err);
+    });
   }
 
   return (
