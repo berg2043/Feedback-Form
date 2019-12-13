@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 const Questions = (props) => {
   // Hooks
-  const [input, setInput] = useState('')
+  const [input, setInput] = useState('');
 
   // Updates hook dynamically as user types in form
   function inputForm(event){
@@ -13,7 +13,8 @@ const Questions = (props) => {
   // Sends input to reducer
   function submitInput(event){
     event.preventDefault();
-    props.dispatch({type: props.reducerPath, payload: input})
+    props.dispatch({type: props.reducerPath, payload: input});
+    props.history.push(props.routerPath);
   }
 
   return (
@@ -31,8 +32,12 @@ const Questions = (props) => {
             />
         <button>Next</button>
       </form>
+      {props.back
+        ? <button onClick={()=>props.history.push(props.back)}>Back</button>
+        : null}
     </div>
   )
 };
 
-export default connect()(Questions)
+const storeOnProps=(reduxStore)=>({feedback: reduxStore.feedbackReducer});
+export default connect(storeOnProps)(Questions);
