@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import Questions from '../Questions/Questions';
 import Comments from '../Comments/Comments';
+import Review from '../Review/Review';
 
 const App = (props)=> {
   return (
@@ -17,8 +18,9 @@ const App = (props)=> {
       <Router>
         <Questions reducerPath="ADD_FEELING" question="How are you feeling today?" placeholder="Feeling?"/>
         <Questions reducerPath="ADD_UNDERSTANDING" question="How are you understanding the content?" placeholder="Understanding?"/>
-        <Questions reducerPath="ADD_SUPPORTED" question="How are you being supported today?" placeholder="Support?"/>
+        <Questions reducerPath="ADD_SUPPORT" question="How are you being supported today?" placeholder="Support?"/>
         <Comments/>
+        <Review/>
       </Router>
     </div>
   );
