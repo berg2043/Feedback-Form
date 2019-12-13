@@ -21,7 +21,6 @@ const Comments = (props) => {
       <h1>Any comments you want to leave?</h1>
       <form onSubmit={submitComment}>
         <input 
-            required
             value={comment} 
             onChange={commentForm} 
             placeholder="Comments"
