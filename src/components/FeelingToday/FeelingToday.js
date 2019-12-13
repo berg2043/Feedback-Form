@@ -13,7 +13,7 @@ const FeelingToday = (props) => {
   // Sends feeling to reducer
   function submitFeeling(event){
     event.preventDefault();
-    props.dispatch({type: "ADD_FEELINGS", payload: feeling})
+    props.dispatch({type: "ADD_FEELING", payload: feeling})
   }
 
   return (
