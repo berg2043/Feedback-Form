@@ -21,6 +21,7 @@ const Questions = (props) => {
       <h1>{props.question}</h1>
       <form onSubmit={submitInput}>
         <input 
+            required
             min={0} 
             max={5} 
             type="number"
