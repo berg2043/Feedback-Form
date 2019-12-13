@@ -10,7 +10,7 @@ const Questions = (props) => {
     setInput(event.target.value);
   }
   
-  // Sends feeling to reducer
+  // Sends input to reducer
   function submitInput(event){
     event.preventDefault();
     props.dispatch({type: props.reducerPath, payload: input})

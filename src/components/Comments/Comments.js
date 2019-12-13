@@ -10,10 +10,10 @@ const Comments = (props) => {
     setComment(event.target.value);
   }
   
-  // Sends feeling to reducer
+  // Sends comments to reducer
   function submitComment(event){
     event.preventDefault();
-    props.dispatch({type: props.reducerPath, payload: comment})
+    props.dispatch({type: "ADD_COMMENTS", payload: comment})
   }
 
   return (
