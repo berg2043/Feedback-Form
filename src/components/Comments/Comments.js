@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 const Comments = (props) => {
   // Hooks
-  const [comment, setComment] = useState('')
+  const [comment, setComment] = useState('');
 
   // Updates hook dynamically as user types in form
   function commentForm(event){
@@ -13,7 +13,8 @@ const Comments = (props) => {
   // Sends comments to reducer
   function submitComment(event){
     event.preventDefault();
-    props.dispatch({type: "ADD_COMMENTS", payload: comment})
+    props.dispatch({type: "ADD_COMMENTS", payload: comment});
+    props.history.push('/review');
   }
 
   return (
@@ -27,8 +28,9 @@ const Comments = (props) => {
             />
         <button>Next</button>
       </form>
+      <button onClick={()=>props.history.push('./support')}>Back</button>
     </div>
   )
 };
 
-export default connect()(Comments)
+export default connect()(Comments);
