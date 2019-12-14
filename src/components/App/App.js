@@ -5,6 +5,7 @@ import Questions from '../Questions/Questions';
 import Comments from '../Comments/Comments';
 import Review from '../Review/Review';
 import Success from '../Success/Success';
+import Admin from '../Admin/Admin';
 
 const App = (props)=> {
   return (
@@ -44,6 +45,7 @@ const App = (props)=> {
         <Route path='/comments' render={(props)=> <Comments {...props}/>}/>
         <Route path='/review' render={(props)=> <Review {...props}/>}/>
         <Route path='/thanks' render={(props)=> <Success {...props}/>}/>
+        <Route path='/admin' render={(props)=> <Admin {...props}/>}/>
       </Router>
     </div>
   );
