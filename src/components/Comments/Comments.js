@@ -57,6 +57,8 @@ const Comments = (props) => {
                 onChange={commentForm} 
                 label="Comments"
                 multiline
+                rows={5}
+                autoFocus 
                 />
           </Grid>
           <Grid item>

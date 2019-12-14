@@ -66,6 +66,7 @@ const Questions = (props) => {
                 onChange={inputForm} 
                 label={props.placeholder}
                 className={classes.input}
+                autoFocus 
                 />
             </Grid>
             <Grid item>
