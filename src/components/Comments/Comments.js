@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Button, TextField, Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -16,6 +16,9 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Comments = (props) => {
+
+  const dispatch = useDispatch();
+
   // Hooks
   const [comment, setComment] = useState('');
 
@@ -27,7 +30,7 @@ const Comments = (props) => {
   // Sends comments to reducer
   function submitComment(event){
     event.preventDefault();
-    props.dispatch({type: "ADD_COMMENTS", payload: comment});
+    dispatch({type: "ADD_COMMENTS", payload: comment});
     props.history.push('/review');
   }
 
@@ -40,6 +43,7 @@ const Comments = (props) => {
         <Grid container direction="row" justify="center" alignItems="center" spacing={2}>
           <Grid item xs={12}>
             <TextField
+                type="text"
                 variant="filled"
                 value={comment} 
                 onChange={commentForm} 
@@ -59,4 +63,4 @@ const Comments = (props) => {
   )
 };
 
-export default connect()(Comments);
+export default Comments;
