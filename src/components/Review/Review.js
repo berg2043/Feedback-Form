@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button } from '@material-ui/core';
@@ -16,12 +16,16 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Review = (props) => {
-  
+  // Adds dispatch
+  const dispatch = useDispatch();
+
+  // Gets info from reducer
   const feedback = useSelector(store=> store.feedbackReducer)
 
   // Sends feedback to server
   function submit(){
     postFeedback(feedback);
+    dispatch({type: 'CLEAR_FEEDBACK'})
     props.history.push('/thanks')
   }
 
@@ -42,8 +46,8 @@ const Review = (props) => {
       <p>Understanding: {feedback.understanding}</p>
       <p>Support: {feedback.support}</p>
       <p>Comments: {feedback.comments}</p>
-      <Button onClick={submit} variant="contained" color="primary">Submit</Button>
       <Button onClick={()=>props.history.push('/comments')} variant="contained" color="secondary">Back</Button>
+      <Button onClick={submit} variant="contained" color="primary">Submit</Button>
     </div>
   )
 };
