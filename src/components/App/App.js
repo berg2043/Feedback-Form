@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import { connect } from 'react-redux';
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import Questions from '../Questions/Questions';
 import Comments from '../Comments/Comments';
@@ -48,4 +47,4 @@ const App = (props)=> {
 };
 
 
-export default connect()(App);
+export default App;
