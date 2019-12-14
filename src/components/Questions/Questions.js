@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import { useDispatch, } from 'react-redux';
+import React, {useState, useEffect} from 'react';
+import { useDispatch,useSelector } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import {Button, Grid} from '@material-ui/core/';
@@ -22,8 +22,16 @@ const Questions = (props) => {
   // Adds dispatch
   const dispatch = useDispatch();
 
+  // Gets value from reducer
+  const feedback = useSelector(store=> store.feedbackReducer[[props.dValue]])
+  
   // Hooks
   const [input, setInput] = useState('');
+
+  // Updates field to prvious value when comonent mounts or updates
+  useEffect(()=>{
+    setInput(feedback)
+  }, [feedback])
 
   // Updates hook dynamically as user types in form
   function inputForm(event){
@@ -37,6 +45,9 @@ const Questions = (props) => {
     props.history.push(props.routerPath);
   }
 
+
+
+  // Adds Styling
   const classes = useStyles();
 
   return (

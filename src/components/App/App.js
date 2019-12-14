@@ -20,7 +20,8 @@ const App = (props)=> {
               reducerPath="ADD_FEELING" 
               question="How are you feeling today?" 
               placeholder="Feeling?"
-              routerPath="/understanding"/>}
+              routerPath="/understanding"
+              dValue="feeling"/>}
         />
         <Route path='/understanding' render={(props)=>
           <Questions {...props}
@@ -28,7 +29,8 @@ const App = (props)=> {
               question="How are you understanding the content?" 
               placeholder="Understanding?"
               routerPath="/support"
-              back="/"/>}
+              back="/"
+              dValue="understanding"/>}
         />
         <Route path='/support' render={(props)=>
           <Questions {...props}
@@ -36,7 +38,8 @@ const App = (props)=> {
               question="How are you being supported today?" 
               placeholder="Support?"
               routerPath="/comments"
-              back="understanding"/>}
+              back="understanding"
+              dValue="support"/>}
         />
         <Route path='/comments' render={(props)=> <Comments {...props}/>}/>
         <Route path='/review' render={(props)=> <Review {...props}/>}/>

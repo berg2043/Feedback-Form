@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import { useDispatch } from 'react-redux';
+import React, {useState, useEffect} from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Button, TextField, Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -16,11 +16,19 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Comments = (props) => {
-
+  // adds dispatch
   const dispatch = useDispatch();
+
+  // Gets value from reducer
+  const prevComment = useSelector(store=> store.feedbackReducer.comment)
 
   // Hooks
   const [comment, setComment] = useState('');
+
+  // Updates field to prvious value when comonent mounts or updates
+  useEffect(()=>{
+    setComment(prevComment)
+  }, [prevComment])
 
   // Updates hook dynamically as user types in form
   function commentForm(event){
