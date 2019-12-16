@@ -29,7 +29,7 @@ if (process.env.DATABASE_URL) {
     // only change the things on the right side of the ||
     config = {
         user: process.env.PG_USER || null, //env var: PGUSER
-        password: process.env.DATABASE_SECRET || 'f9f067d863124487930668531c8a33a2', //env var: PGPASSWORD
+        password: process.env.DATABASE_SECRET || null, //env var: PGPASSWORD
         host: process.env.DATABASE_SERVER || 'localhost', // Server hosting the postgres database
         port: process.env.DATABASE_PORT || 5432, //env var: PGPORT
         database: process.env.DATABASE_NAME || 'prime_feedback', //env var: PGDATABASE or the name of your database (e.g. database: process.env.DATABASE_NAME || 'koala_holla',)
