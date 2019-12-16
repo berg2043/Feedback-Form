@@ -15,7 +15,8 @@ This is a simple single page app that takes feedback from the user and keeps it 
 ## Installation
 
 1. Run npm install
-2. Create a database called `prime_feedback` on your local postgres server
+2. Create a database called `prime_feedback` on your local postgres server. Update
+`server\modules\pool.js` as needed for username and password of your postgres server
 3. Run the SQL commands found in `database.sql`
 3. Run `npm run build` to build a local react app
 4. Run `npm run server` to run the server.
