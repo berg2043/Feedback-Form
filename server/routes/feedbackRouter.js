@@ -39,7 +39,6 @@ router.put('/:id', (req,res)=>{
 
 // POSTS feedback to database
 router.post('/', (req,res)=>{
-  console.log(req.body);
   const {
     feeling,
     understanding,
