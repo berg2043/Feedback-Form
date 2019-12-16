@@ -58,6 +58,14 @@ SQL
 * postgres
 * pgadmin 4
 
+## Known bugs
+* When trying to navigate past comments, console will log `Assertion failed: Input
+argument is not an HTMLInputElement onloadwff.js` if you have LastPass.  This is
+a known bug with text-area and LastPasss, and Material-UI uses text-area when 
+creating a multiline TextField.  This should not affect functionality.  If an issue
+does occur and you have an error message refferencing onloadwff.js, disable LastPass
+while using this app.
+
 ## Support
 
 If you have nay suggestions or issues, please e-mail me at phillipb1991@msn.com
