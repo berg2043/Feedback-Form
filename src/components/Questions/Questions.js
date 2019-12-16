@@ -3,6 +3,7 @@ import { useDispatch,useSelector } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import {Button, Grid} from '@material-ui/core/';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -25,6 +26,9 @@ const Questions = (props) => {
   // Gets value from reducer
   const feedback = useSelector(store=> store.feedbackReducer[[props.dValue]])
   
+  // Adds History
+  let history = useHistory();
+
   // Hooks
   const [input, setInput] = useState('');
 
@@ -42,7 +46,7 @@ const Questions = (props) => {
   function submitInput(event){
     event.preventDefault();
     dispatch({type: props.reducerPath, payload: input});
-    props.history.push(props.routerPath);
+    history.push(props.routerPath);
   }
 
 
@@ -72,7 +76,7 @@ const Questions = (props) => {
             <Grid item>
              {props.back
              ? <Button 
-                  onClick={()=>props.history.push(props.back)}
+                  onClick={()=>history.push(props.back)}
                   variant="contained" color="secondary">
                     Back
               </Button>

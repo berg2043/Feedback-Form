@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button } from '@material-ui/core';
+import { useHistory } from 'react-router-dom';
 
 
 const useStyles = makeStyles(theme => ({
@@ -22,11 +23,14 @@ const Review = (props) => {
   // Gets info from reducer
   const feedback = useSelector(store=> store.feedbackReducer)
 
+  // Adds History
+  let history = useHistory();
+
   // Sends feedback to server
   function submit(){
     postFeedback(feedback);
     dispatch({type: 'CLEAR_FEEDBACK'})
-    props.history.push('/thanks')
+    history.push('/thanks')
   }
 
   // Sends feedback to server
@@ -46,7 +50,7 @@ const Review = (props) => {
       <p>Understanding: {feedback.understanding}</p>
       <p>Support: {feedback.support}</p>
       <p>Comments: {feedback.comments}</p>
-      <Button onClick={()=>props.history.push('/comments')} variant="contained" color="secondary">Back</Button>
+      <Button onClick={()=>history.push('/comments')} variant="contained" color="secondary">Back</Button>
       <Button onClick={submit} variant="contained" color="primary">Submit</Button>
     </div>
   )
