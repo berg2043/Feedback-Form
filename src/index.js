@@ -3,9 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App/App';
 import registerServiceWorker from './registerServiceWorker';
-import {applyMiddleware, createStore, combineReducers} from 'redux';
+import {createStore, combineReducers} from 'redux';
 import {Provider} from 'react-redux'
-import logger from 'redux-logger';
 
 // Holds feedback
 const feedbackDefault={feeling: '', understanding: '', support: '', comments: ''}
@@ -30,7 +29,7 @@ const feedbackReducer = (state=feedbackDefault, action) =>{
 const storeInstance = createStore(
   combineReducers({
     feedbackReducer
-  }), applyMiddleware(logger)
+  }),
 );
 
 ReactDOM.render(<Provider store={storeInstance}><App /></Provider>, document.getElementById('root'));

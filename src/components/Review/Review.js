@@ -36,7 +36,7 @@ const Review = (props) => {
   // Sends feedback to server
   function postFeedback(payload){
     Axios.post('/feedback', payload).then(response=>{
-      console.log('success');
+      return null;
     }).catch(err=>{
       console.log(err);
     });
