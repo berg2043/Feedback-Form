@@ -29,14 +29,13 @@ const Review = (props) => {
   // Sends feedback to server
   function submit(){
     postFeedback(feedback);
-    dispatch({type: 'CLEAR_FEEDBACK'})
-    history.push('/thanks')
   }
 
   // Sends feedback to server
   function postFeedback(payload){
     Axios.post('/feedback', payload).then(response=>{
-      return null;
+      dispatch({type: 'CLEAR_FEEDBACK'})
+      history.push('/thanks')
     }).catch(err=>{
       console.log(err);
     });
