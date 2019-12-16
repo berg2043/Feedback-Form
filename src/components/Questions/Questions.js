@@ -63,8 +63,7 @@ const Questions = (props) => {
             <TextField  
                 variant="filled"
                 required
-                min={0} 
-                max={5} 
+                inputProps={{ min: "0", max: "5"}} 
                 type="number"
                 value={input} 
                 onChange={inputForm} 
