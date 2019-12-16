@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, TextField, Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import { useHistory } from 'react-router-dom';
 
 
 const useStyles = makeStyles(theme => ({
@@ -20,7 +21,10 @@ const Comments = (props) => {
   const dispatch = useDispatch();
 
   // Gets value from reducer
-  const prevComment = useSelector(store=> store.feedbackReducer.comment)
+  const prevComment = useSelector(store=> store.feedbackReducer.comments)
+
+  // Adds History
+  let history = useHistory();
 
   // Hooks
   const [comment, setComment] = useState('');
@@ -39,7 +43,7 @@ const Comments = (props) => {
   function submitComment(event){
     event.preventDefault();
     dispatch({type: "ADD_COMMENTS", payload: comment});
-    props.history.push('/review');
+    history.push('/review');
   }
 
   const classes = useStyles();
@@ -62,7 +66,7 @@ const Comments = (props) => {
                 />
           </Grid>
           <Grid item>
-            <Button onClick={()=>props.history.push('./support')} variant="contained" color="secondary">Back</Button>
+            <Button onClick={()=>history.push('./support')} variant="contained" color="secondary">Back</Button>
           </Grid>
           <Grid item>
             <Button type="submit" variant="contained" color="primary">Next</Button>
