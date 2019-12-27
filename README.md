@@ -58,4 +58,4 @@ while using this app.
 
 ## Support
 
-If you have nay suggestions or issues, please e-mail me at phillipb1991@msn.com
+This was created as an assignment and is thus unsupported.
